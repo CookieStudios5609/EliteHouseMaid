@@ -7,11 +7,11 @@ import os
 
 dotenv.load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-TEST_GUILD = os.getenv("TEST_GUILD")
+TEST_GUILDS = os.getenv("TEST_GUILDS")
 
 intents = disnake.Intents.default()
 prefix = ">>"
-bot = commands.Bot(command_prefix=prefix, intents=intents, test_guilds=[TEST_GUILD])
+bot = commands.Bot(command_prefix=prefix, intents=intents, test_guilds=[TEST_GUILDS])
 logging.basicConfig(level='INFO', filename='maidlog.txt', filemode='w')
 startup_cogs = ['cogs.owner']
 

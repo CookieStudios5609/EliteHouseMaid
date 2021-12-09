@@ -3,20 +3,26 @@ from disnake.ext import commands
 import dotenv
 import logging
 import os
+import jishaku
 
 
 dotenv.load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 TEST_GUILDS = os.getenv("TEST_GUILDS")
 
+
 intents = disnake.Intents.default()
 prefix = ">>"
-bot = commands.Bot(command_prefix=prefix, intents=intents, test_guilds=[TEST_GUILDS])
+bot = commands.Bot(command_prefix=prefix, intents=intents, test_guilds=(int(TEST_GUILDS),))
 logging.basicConfig(level='INFO', filename='maidlog.txt', filemode='w')
-startup_cogs = ['cogs.owner']
+startup_cogs = ['cogs.bookmark', 'cogs.animal', 'cogs.brother', 'jishaku']
+
+
+
+
 
 if __name__ == "__main__":
-    logging.info("Starting bot...")
+    logging.info(f"Starting bot...")
 
     for extension in startup_cogs:
         try:

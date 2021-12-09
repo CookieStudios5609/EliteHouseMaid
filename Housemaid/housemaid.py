@@ -3,7 +3,6 @@ from disnake.ext import commands
 import dotenv
 import logging
 import os
-import jishaku
 
 
 dotenv.load_dotenv()
@@ -16,9 +15,6 @@ prefix = ">>"
 bot = commands.Bot(command_prefix=prefix, intents=intents, test_guilds=(int(TEST_GUILDS),))
 logging.basicConfig(level='INFO', filename='maidlog.txt', filemode='w')
 startup_cogs = ['cogs.bookmark', 'cogs.animal', 'cogs.brother', 'jishaku']
-
-
-
 
 
 if __name__ == "__main__":
